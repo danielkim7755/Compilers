@@ -1,0 +1,17 @@
+To approach this project, I first defined a few definitions of a couple patterns.
+The Definitions that I have are BOOLEAN(Given), DIGIT, INTEGER, UINTEGER, FLOAT, FLOATE, IDENTIFIER, with its respective regex defined in scanner.l
+
+Then, I created rules for the tab character, whitespaces, and newlines, and single line comments which handles the count of currentLineNum and currentColNum.
+
+After that, I handled the Multiline Comments by using a set of exclusive conditional rules. The unterminated multiline comment error is caught within one of the conditions. 
+
+Then, all the rules for the keywords that were highlighted within the GLSL specification were implemented by returning the correct tokens that were defined in scanner.h.
+
+Next, I implemented the rules for the two character operators first and then the single character operators so that the right token is passed.
+
+Then for the dot operator, a set of exclusive conditional rules were implemented to handle the field selection portion.
+
+Lastly, I defined all the rules for the definitions that I have macroed in the first step so that within each definition, the right value will be passed onto yylval along with the right token.
+As for the Idenitifiers, there is a specific rule that will report an error if the idenifier length is longer than 1023 characters.
+
+Finally, the unrecognized characters would be caught if it didn't get tokenized by any of the rules that were implemented above and would report an error.
