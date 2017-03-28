@@ -1,0 +1,9 @@
+For the semantic analyzer, I started off using a global symbol table and implementing its function members in order to hold necessary symbols and correctly handle declarations of functions and variables within various scopes. This symbol table handles all redeclaration and undeclared variable issues.
+
+Then, I implemented the decl class where a virtual Check function was implemented for each VarDecl and FnDecl class. This will allow polymorphism to work within the analyzer and thus the right Check function will be called whenever a check is called on a decl object. Within the Check functions, its symbol is added to the symbol table and necessary checks are done to do a correct and through check of any declarations.
+
+After that, the statement class was implemented where again, each statement class was given a virtual Check function in order to utilize polymorphism. By doing so, the correct check will be done for each unique statement and within each check, the right errors were reported.
+
+Lastly, the expression class was implemented where each expression class had a virtual Check function and a virtual GetType function. The check function was used to check for the necessary check for each unique expression and reports errors wherever an error exists while the GetType function returned a Type class pointer depending on what the type of the expression. The GetType functions determine if the expr should be error type and this prevents cascading of errors which is correctly handled within the other check functions of every class.
+
+Thus, this semantic analyzer utilizes polymorphism to handle all scoping problems and all the reports within the given functions of errors.h.

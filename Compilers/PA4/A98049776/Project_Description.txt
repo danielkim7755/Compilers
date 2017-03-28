@@ -1,0 +1,11 @@
+For this project assignment, the IR generation functionality was integrated to our compiler.
+
+First, the symtable was updated from the last PA, where the Symbol class had an llvm::Value* variable member. So changes to all the member functions for the scoped table and symbol table was made accordingly in order to handle the new variable. Also, the IRGenerator Class was updated so that it can support vec2,vec3,vec4 types.
+
+Next, I have included a GetllvmType() function within the ast_type class in order to convert Class Type to llvm::Type*
+
+Then, I started to implement the Virtual Emit functions within the Decl class. I have changed the type of the virtual emit functions to return a llvm::Value* type instead of void. Upon that, I have implemented the Virtual Emit functions for the VarDecl and FnDecl classes so that allocations of that decl would be returned, and its declaration would be correctly stored onto the symbol table.
+
+After, all the virtual emit functions were implemented for every specific expr within the expr class since many stmts utilize expressions.
+
+Upon running various tests to check the correctness of the expression emit functions, I then started to implement the emit functions for all the classes within the ast_stmt.h.

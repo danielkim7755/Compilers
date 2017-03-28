@@ -1,0 +1,7 @@
+PA2 README
+
+For this PA, I implemented the Bison parser in accodance to the GLSL specifications that were highlighted in chapter 10 of the handbook. At first, I attempted to fix the grammar in a way so that we didn't as many rules as the highlighted portion of the handbook but inevidently it ran into a lot of errors. So then, I just followed the highlighted specifications with a few rules dissolved for better readability.
+
+Also, I added the T_Vec2 T_Vec3 T_Vec4 type implementations as well and used the AST files in order to provide the correct actions for each rule.
+
+Lastly, error recovery was not attempted due to it being removed from the requirements and a lack of time.
